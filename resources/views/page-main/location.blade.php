@@ -13,7 +13,7 @@
     </p>
 
     <!-- Map container -->
-    <div class="map" id="map" style="height: 500px; border-radius: 12px; overflow: hidden;" data-aos="zoom-in" data-aos-duration="700" data-aos-once="true"></div>
+    <div class="map" id="map" data-location='@json($location)' style="height: 500px; border-radius: 12px; overflow: hidden;" data-aos="zoom-in" data-aos-duration="700" data-aos-once="true"></div>
   </div>
 </section>
 
@@ -40,22 +40,13 @@
   // Simpan popup aktif agar bisa ditutup saat buka yang baru
   let activePopup = null;
 
-  // Data lokasi
-  const locations = [
-    { name: "Jakarta", coords: [-6.2, 106.8] },
-    { name: "Banyuwangi", coords: [-8.65, 114.35] },
-    { name: "Surabaya", coords: [-7.25, 112.75] },
-    { name: "Yogyakarta", coords: [-7.79, 110.36] },
-    { name: "Sidoarjo", coords: [-7.45, 112.72] },
-    { name: "Madiun", coords: [-7.62, 111.53] },
-    { name: "Malang", coords: [-7.98, 112.63] },
-    { name: "Bandung", coords: [-6.92, 107.61] },
-    { name: "Purwakarta", coords: [-6.55, 107.45] },
-    { name: "Palembang", coords: [-2.97, 104.75] },
-    { name: "Lampung", coords: [-5.45, 105.25] },
-    { name: "Sulawesi", coords: [3.61, 125.2] },
-    { name: "Kalimantan", coords: [0.35, 114.42] },
-  ];
+  const mapContainer = document.getElementById("map");
+  const rawLocations = JSON.parse(mapContainer.dataset.location);
+
+  const locations = rawLocations.map(item => ({
+    name: item.wilayah,
+    coords: [parseFloat(item.latitude), parseFloat(item.longitude)]
+  }));
 
   // Tambahkan marker per lokasi
   locations.forEach((loc) => {

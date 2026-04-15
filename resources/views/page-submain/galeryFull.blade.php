@@ -35,18 +35,18 @@
                     ];
                 @endphp
 
-                @foreach ($galleries as $item)
+                @foreach ($data as $item)
                     <div class="masonry-item"
                         data-aos="zoom-in"
                         data-aos-duration="700"
                         data-aos-once="true"
-                        data-src="{{ $item['src'] }}"
-                        data-title="{{ $item['title'] }}"
-                        data-desc="{{ $item['description'] }}">
+                        data-src="{{ $item->image_path }}"
+                        data-title="{{ $item->title }}"
+                        data-desc="{{ $item->description }}">
                         <div class="image-wrapper">
-                            <img src="{{ $item['src'] }}" alt="{{ $item['title'] }}">
+                            <img src="{{ asset('img/Galeri/' . $item->image_path) }}" alt="{{ $item->title }}">
                             <div class="image-overlay">
-                                <div class="overlay-title">{{ $item['title'] }}</div>
+                                <div class="overlay-title">{{ $item->title }}</div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     img.classList.toggle('portrait', isPortrait);
                 };
 
-                img.src = item.dataset.src;
+                img.src = "img/Galeri/" + item.dataset.src;
                 title.innerText = item.dataset.title;
                 desc.innerText = item.dataset.desc;
 

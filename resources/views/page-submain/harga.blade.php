@@ -81,7 +81,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @include('page-submain.hargaBBM.B40')
+                    @foreach ($data->B40 as $item)
+                    <tr>
+                        <td class="d-none">{{ $item->tanggal_awal }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->tanggal_awal)->translatedFormat('d') }}-{{ \Carbon\Carbon::parse($item->tanggal_akhir)->translatedFormat('d F Y') }}</td>
+                        <td>Rp {{ number_format($item->harga_1, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_2, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_3, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_4, 0, ',', '.') }}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -103,7 +112,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @include('page-submain.hargaBBM.HSFO')
+                    @foreach ($data->HSFO as $item)
+                    <tr>
+                        <td class="d-none">{{ $item->tanggal_awal }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->tanggal_awal)->translatedFormat('d') }}-{{ \Carbon\Carbon::parse($item->tanggal_akhir)->translatedFormat('d F Y') }}</td>
+                        <td>Rp {{ number_format($item->harga_1, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_2, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_3, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_4, 0, ',', '.') }}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -125,7 +143,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @include('page-submain.hargaBBM.LSFO')
+                    @foreach ($data->LSFO as $item)
+                    <tr>
+                        <td class="d-none">{{ $item->tanggal_awal }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->tanggal_awal)->translatedFormat('d') }}-{{ \Carbon\Carbon::parse($item->tanggal_akhir)->translatedFormat('d F Y') }}</td>
+                        <td>Rp {{ number_format($item->harga_1, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_2, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_3, 0, ',', '.') }}</td>
+                        <td>Rp {{ number_format($item->harga_4, 0, ',', '.') }}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
