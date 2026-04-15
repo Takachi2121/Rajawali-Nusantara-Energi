@@ -1,3 +1,6 @@
+@php
+    $user = \App\Models\User::find(1);
+@endphp
 <div id="footer" style="background-color: var(--primary-color)">
     <div class="container pt-5">
         <div class="row">
@@ -29,9 +32,9 @@
             </div>
             <div class="col-lg-4 col-md-12 mt-lg-3">
                 <h5 class="text-white mb-4">Kontak Kami</h5>
-                <p class="text-white mb-2">Indonesia Stock Exchange Building, Tower 1 Level 3 Suite 304, SCBD Jl. Jend. Sudirman Kav. 52-53 Jakarta Selatan 12190</p>
-                <p class="text-white mb-2">Phone: (021) 5890 5002</p>
-                <p class="text-white mb-2">Email: Rajawalinusantaraenergi@gmail.com</p>
+                <p class="text-white mb-2">{{ $user->detail->address }}</p>
+                <p class="text-white mb-2">Phone: {{ $user->detail->office_contact }}</p>
+                <p class="text-white mb-2">Email: {{ $user->detail->email_contact }}</p>
             </div>
         </div>
     </div>

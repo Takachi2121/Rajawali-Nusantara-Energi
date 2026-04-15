@@ -22,18 +22,18 @@
                 <div class="col-lg-2 col-md-4 col-sm-12 pt-4 pe-4 ps-4 card-misi shadow-sm text-center" data-aos="fade-down" data-aos-duration="700" data-aos-delay="200" data-aos-once="true">
                     <img class="pb-3" src="{{ asset('img/Icon/Whatsapp.png') }}" alt="Icon Fuel">
                     <p class="fw-light text-white text-start">Dapatkan respon cepat dan informasi akurat dengan menghubungi kami via WhatsApp.</p>
-                    <a class="tombol-kontakKami mb-4" target="_blank" href="https://api.whatsapp.com/send/?phone=6285172071096">Via WhatsApp</a>
+                    <a class="tombol-kontakKami mb-4" target="_blank" href='https://api.whatsapp.com/send/?phone={{ $user->detail->whatsapp }}'>Via WhatsApp</a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 pt-4 pe-4 ps-4 card-misi shadow-sm text-center" data-aos="fade-down" data-aos-duration="700" data-aos-delay="200" data-aos-once="true">
                     <img class="pb-3" src="{{ asset('img/Icon/Maps.png') }}" alt="Icon Fuel">
                     <p class="fw-light text-white text-start">Kunjungi lokasi operasional kami melalui Google Maps untuk informasi rute dan jam operasional.</p>
-                    <a class="tombol-kontakKami mb-4" target="_blank" href="https://maps.app.goo.gl/Pn5WmSZr5EZybbyw7">Via Maps</a>
+                    <a class="tombol-kontakKami mb-4" target="_blank" href="{{ $user->detail->maps_office }}">Via Maps</a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 pt-4 pe-4 ps-4 card-misi shadow-sm text-center" data-aos="fade-down" data-aos-duration="700" data-aos-delay="200" data-aos-once="true">
                     <img class="pb-3" src="{{ asset('img/Icon/Email.png') }}" alt="Icon Fuel">
                     <p class="fw-light text-white text-start">Kirim pertanyaan, permintaan penawaran, atau kerja sama melalui email resmi kami.</p>
                     <a class="tombol-kontakKami mb-4"
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=rajawalinusantaraenergi@gmail.com"
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $user->detail->email_contact }}"
                         target="_blank"
                         rel="noopener noreferrer">
                         Via Email

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 use App\Models\Harga;
 use App\Models\Lokasi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -42,6 +43,8 @@ class PageController extends Controller
     }
 
     public function contact(){
-        return view('page-submain.kontak');
+        $user = User::find(1);
+
+        return view('page-submain.kontak', compact('user'));
     }
 }

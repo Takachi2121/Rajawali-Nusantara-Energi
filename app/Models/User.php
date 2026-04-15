@@ -45,4 +45,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected $with = ['detail'];
+
+    public function detail()
+    {
+        return $this->hasOne(Detail::class);
+    }
 }
