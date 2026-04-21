@@ -12,4 +12,14 @@ class Harga extends Model
 
     protected $primaryKey = 'id';
     public $timestamps = false;
+
+    protected $fillable = [
+        'tanggal_awal',
+        'tanggal_akhir',
+        'jenis',
+        'harga_1',
+        'harga_2',
+        'harga_3',
+        'harga_4',
+    ];
 }

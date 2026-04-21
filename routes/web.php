@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,6 @@ Route::prefix('/')->group(function(){
 
 Route::prefix('/admin')->middleware('auth')->group(function(){
     Route::resource('/profile', ProfileController::class)->only(['index', 'update']);
+    Route::resource('/lokasi', LokasiController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

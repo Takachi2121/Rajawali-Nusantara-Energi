@@ -1,7 +1,9 @@
 <aside class="bg-white vh-100 p-3 d-flex flex-column" style="min-width: 250px;">
 
     <div class="text-center mb-4">
-        <img src="{{ asset('img/LogoBlack.png') }}" alt="Logo Rnecoid" height="60">
+        <a href="/">
+            <img src="{{ asset('img/LogoBlack.png') }}" alt="Logo Rnecoid" height="60">
+        </a>
     </div>
 
     <ul class="nav flex-column grow">
@@ -13,7 +15,7 @@
         </x-sidebar-link>
 
         <x-sidebar-link
-            href=""
+            :href="route('lokasi.index')"
             :active="request()->routeIs('lokasi.index')">
             <i class="fa-solid fa-compass"></i>
             Lokasi

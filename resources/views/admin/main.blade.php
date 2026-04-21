@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    @stack('css-additional')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="d-flex">
         @include('admin.layouts.sidebar')
 
-        <div class="content-wrapper grow p-4">
+        <div class="content-wrapper grow p-4 container-fluid">
             @yield('content')
         </div>
     </div>

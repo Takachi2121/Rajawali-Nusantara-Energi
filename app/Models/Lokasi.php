@@ -9,4 +9,10 @@ class Lokasi extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'wilayah',
+        'latitude',
+        'longitude'
+    ];
 }
