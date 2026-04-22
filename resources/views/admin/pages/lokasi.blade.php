@@ -1,5 +1,9 @@
 @extends('admin.main')
 
+@section('title')
+    Lokasi RNE
+@endsection
+
 @section('content')
     <h3 class="my-4">Lokasi RNE</h3>
 

@@ -1,5 +1,9 @@
 @extends('admin.main')
 
+@section('title')
+    Admin RNE
+@endsection
+
 @section('content')
     <h3 class="my-4">Informasi RNE</h3>
     <div class="card w-100">

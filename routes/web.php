@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
@@ -20,6 +21,7 @@ Route::prefix('/')->group(function(){
 
 Route::prefix('/admin')->middleware('auth')->group(function(){
     Route::resource('/profile', ProfileController::class)->only(['index', 'update']);
-    Route::resource('/lokasi', LokasiController::class);
+    Route::resource('/lokasi', LokasiController::class)->except('show', 'create', 'edit');
+    Route::resource('/galeri', GaleriController::class)->except('show', 'create', 'edit');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

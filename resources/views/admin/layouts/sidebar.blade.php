@@ -22,7 +22,7 @@
         </x-sidebar-link>
 
         <x-sidebar-link
-            href=""
+            :href="route('galeri.index')"
             :active="request()->routeIs('galeri.index')">
             <i class="fa-solid fa-images"></i>
             Galeri

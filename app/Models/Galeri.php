@@ -11,4 +11,10 @@ class Galeri extends Model
     use HasFactory;
 
     protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'title',
+        'description',
+        'image_path'
+    ];
 }

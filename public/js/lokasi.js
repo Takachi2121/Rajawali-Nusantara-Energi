@@ -209,7 +209,7 @@ document.querySelectorAll(".form-hapus").forEach((form) => {
             })
             .catch((err) => {
                 Swal.fire("Gagal", "Terjadi kesalahan", "error");
-                console.log(err);
+                // console.log(err);
             })
             .finally(() => {
                 spinner.classList.add("d-none");
