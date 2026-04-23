@@ -79,6 +79,132 @@
             </div>
         </div>
     </div>
+    <br>
+    <div class="card w-100">
+        <div class="card-body">
+            <h5 class="mb-4">LSFO</h5>
+                <div class="table-responsive" style="max-height: 300px">
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Nomor</th>
+                            <th>Tanggal Awal</th>
+                            <th>Tanggal Akhir</th>
+                            <th>Jenis</th>
+                            <th>Harga Wilayah 1</th>
+                            <th>Harga Wilayah 2</th>
+                            <th>Harga Wilayah 3</th>
+                            <th>Harga Wilayah 4</th>
+                            <th>Aksi</th>
+                        </thead>
+                    <tbody>
+                        @foreach ($lsfo as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->tanggal_awal }}</td>
+                            <td>{{ $item->tanggal_akhir }}</td>
+                            <td>LSFO</td>
+                            <td>{{ $item->harga_1 }}</td>
+                            <td>{{ $item->harga_2 }}</td>
+                            <td>{{ $item->harga_3 }}</td>
+                            <td>{{ $item->harga_4 }}</td>
+                            <td>
+                                <button
+                                    data-id="{{ $item->id }}"
+                                    data-url="{{ route('harga.update', $item->id) }}"
+                                    data-tanggal_awal="{{ $item->tanggal_awal }}"
+                                    data-tanggal_akhir="{{ $item->tanggal_akhir }}"
+                                    data-harga_1="{{ $item->harga_1 }}"
+                                    data-harga_2="{{ $item->harga_2 }}"
+                                    data-harga_3="{{ $item->harga_3 }}"
+                                    data-harga_4="{{ $item->harga_4 }}"
+                                    data-jenis="{{ $item->jenis }}"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalFormEdit"
+                                    class="btn btn-sm btn-primary btn-edit"
+                                    >
+                                    Edit
+                                </button>
+                                <form class="form-delete d-inline" data-url="{{ route('harga.destroy', $item->id) }}">
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm btn-hapus-harga">
+                                        <span class="spinner d-none my-0 mx-3">
+                                            <span class="spinner-border spinner-border-sm"></span>
+                                        </span>
+
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card w-100">
+        <div class="card-body">
+            <h5 class="mb-4">HSFO</h5>
+                <div class="table-responsive" style="max-height: 300px">
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Nomor</th>
+                            <th>Tanggal Awal</th>
+                            <th>Tanggal Akhir</th>
+                            <th>Jenis</th>
+                            <th>Harga Wilayah 1</th>
+                            <th>Harga Wilayah 2</th>
+                            <th>Harga Wilayah 3</th>
+                            <th>Harga Wilayah 4</th>
+                            <th>Aksi</th>
+                        </thead>
+                    <tbody>
+                        @foreach ($hsfo as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->tanggal_awal }}</td>
+                            <td>{{ $item->tanggal_akhir }}</td>
+                            <td>LSFO</td>
+                            <td>{{ $item->harga_1 }}</td>
+                            <td>{{ $item->harga_2 }}</td>
+                            <td>{{ $item->harga_3 }}</td>
+                            <td>{{ $item->harga_4 }}</td>
+                            <td>
+                                <button
+                                    data-id="{{ $item->id }}"
+                                    data-url="{{ route('harga.update', $item->id) }}"
+                                    data-tanggal_awal="{{ $item->tanggal_awal }}"
+                                    data-tanggal_akhir="{{ $item->tanggal_akhir }}"
+                                    data-harga_1="{{ $item->harga_1 }}"
+                                    data-harga_2="{{ $item->harga_2 }}"
+                                    data-harga_3="{{ $item->harga_3 }}"
+                                    data-harga_4="{{ $item->harga_4 }}"
+                                    data-jenis="{{ $item->jenis }}"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalFormEdit"
+                                    class="btn btn-sm btn-primary btn-edit"
+                                    >
+                                    Edit
+                                </button>
+                                <form class="form-delete d-inline" data-url="{{ route('harga.destroy', $item->id) }}">
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm btn-hapus-harga">
+                                        <span class="spinner d-none my-0 mx-3">
+                                            <span class="spinner-border spinner-border-sm"></span>
+                                        </span>
+
+                                        <span class="text">Hapus</span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="modalFormTambah" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
