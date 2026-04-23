@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal_awal');
             $table->date('tanggal_akhir');
-            $table->integer('jenis')->comment('1: B40, 2: HSFO, 3: LSFO');
+            $table->enum('jenis', ['1', '2', '3'])->comment('1: B40, 2: HSFO, 3: LSFO');
             $table->integer('harga_1');
             $table->integer('harga_2');
             $table->integer('harga_3');

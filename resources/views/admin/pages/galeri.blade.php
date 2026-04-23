@@ -1,8 +1,6 @@
 @extends('admin.main')
 
-@section('title')
-    Galeri RNE
-@endsection
+@section('title', 'Galeri RNE')
 
 @section('content')
 <h3 class="my-4">Galeri RNE</h3>

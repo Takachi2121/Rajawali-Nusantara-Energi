@@ -1,29 +1,30 @@
-// ================= DETAIL =================
-document.querySelectorAll(".btn-detail").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        document.getElementById("detailTitle").innerText = btn.dataset.title;
-        document.getElementById("detailDesc").innerHTML = btn.dataset.desc;
-        document.getElementById("detailImage").src = btn.dataset.image;
-    });
-});
+const modalEdit = document.getElementById("modalFormEdit");
 
-// ================= EDIT =================
-document.querySelectorAll(".btn-edit").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        document.getElementById("editId").value = btn.dataset.id;
-        document.getElementById("editTitle").value = btn.dataset.title;
-        document.getElementById("editDesc").value = btn.dataset.desc;
+modalEdit.addEventListener("show.bs.modal", function (event) {
+    const btn = event.relatedTarget;
 
-        document.getElementById("formEdit").dataset.url = btn.dataset.url;
-    });
+    document.getElementById("tanggal_awalEdit").value =
+        btn.dataset.tanggal_awal;
+
+    document.getElementById("tanggal_akhirEdit").value =
+        btn.dataset.tanggal_akhir;
+
+    document.getElementById("jenisBBMEdit").value = btn.dataset.jenis;
+
+    document.getElementById("harga_1Edit").value = btn.dataset.harga_1;
+    document.getElementById("harga_2Edit").value = btn.dataset.harga_2;
+    document.getElementById("harga_3Edit").value = btn.dataset.harga_3;
+    document.getElementById("harga_4Edit").value = btn.dataset.harga_4;
+
+    document.getElementById("formHargaEdit").dataset.url = btn.dataset.url;
 });
 
 // ================= ADD =================
-const formAdd = document.getElementById("formAdd");
+const formAdd = document.getElementById("formHarga");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const buttonText = document.getElementById("buttonText");
 const loadingText = document.getElementById("loadingText");
-const btnSubmit = document.getElementById("btnAddGaleri");
+const btnSubmit = document.getElementById("btnSubmitHarga");
 
 formAdd?.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -43,7 +44,7 @@ formAdd?.addEventListener("submit", function (e) {
             Swal.fire({
                 icon: "success",
                 title: "Berhasil",
-                text: response.data.message || "Galeri berhasil ditambahkan.",
+                text: response.data.message || "Harga berhasil ditambahkan.",
                 showConfirmButton: false,
                 timer: 1500,
             }).then(() => {
@@ -67,25 +68,25 @@ formAdd?.addEventListener("submit", function (e) {
 });
 
 // ================= EDIT =================
-const formEdit = document.getElementById("formEdit");
+const formEdit = document.getElementById("formHargaEdit");
 const loadingSpinnerEdit = document.getElementById("loadingSpinnerEdit");
 const buttonTextEdit = document.getElementById("buttonTextEdit");
 const loadingTextEdit = document.getElementById("loadingTextEdit");
-const btnSubmitEdit = document.getElementById("btnEditGaleri");
+const btnSubmitEdit = document.getElementById("btnSubmitEdit");
 
 formEdit?.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // loading UI
     loadingSpinnerEdit.classList.remove("d-none");
     buttonTextEdit.classList.add("d-none");
     btnSubmitEdit.disabled = true;
     loadingTextEdit.classList.remove("d-none");
 
-    const id = document.getElementById("editId").value;
     const url = formEdit.dataset.url;
-
     const formData = new FormData(formEdit);
+
+    // WAJIB untuk Laravel
+    formData.append("_method", "PUT");
 
     axios
         .post(url, formData)
@@ -93,12 +94,10 @@ formEdit?.addEventListener("submit", function (e) {
             Swal.fire({
                 icon: "success",
                 title: "Berhasil",
-                text: response.data.message || "Galeri berhasil ditambahkan.",
-                showConfirmButton: false,
+                text: response.data.message || "Harga berhasil diupdate.",
                 timer: 1500,
-            }).then(() => {
-                location.reload();
-            });
+                showConfirmButton: false,
+            }).then(() => location.reload());
         })
         .catch((error) => {
             Swal.fire({
@@ -108,7 +107,6 @@ formEdit?.addEventListener("submit", function (e) {
             });
         })
         .finally(() => {
-            // loading UI
             loadingSpinnerEdit.classList.add("d-none");
             buttonTextEdit.classList.remove("d-none");
             btnSubmitEdit.disabled = false;
@@ -130,7 +128,7 @@ document.querySelectorAll(".form-delete").forEach((form) => {
         const text = form.querySelector(".text");
         spinner.classList.remove("d-none");
         text.classList.add("d-none");
-        form.querySelector(".btn-delete").disabled = true;
+        form.querySelector(".btn-hapus-harga").disabled = true;
 
         axios
             .post(url, formData)
@@ -138,8 +136,7 @@ document.querySelectorAll(".form-delete").forEach((form) => {
                 Swal.fire({
                     icon: "success",
                     title: "Berhasil",
-                    text:
-                        response.data.message || "Galeri berhasil ditambahkan.",
+                    text: response.data.message || "Harga berhasil dihapus.",
                     showConfirmButton: false,
                     timer: 1500,
                 }).then(() => {
@@ -157,7 +154,7 @@ document.querySelectorAll(".form-delete").forEach((form) => {
                 // loading OFF
                 spinner.classList.add("d-none");
                 text.classList.remove("d-none");
-                form.querySelector(".btn-delete").disabled = false;
+                form.querySelector(".btn-hapus-harga").disabled = false;
             });
     });
 });

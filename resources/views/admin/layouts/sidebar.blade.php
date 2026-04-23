@@ -29,7 +29,7 @@
         </x-sidebar-link>
 
         <x-sidebar-link
-            href=""
+            :href="route('harga.index')"
             :active="request()->routeIs('harga.index')">
             <i class="fa-solid fa-tags"></i>
             Harga
