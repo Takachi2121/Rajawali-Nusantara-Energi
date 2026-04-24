@@ -123,7 +123,7 @@
                         </span>
 
                         <span id="buttonText">
-                            Simpan Perubahan
+                            Masuk Sekarang
                         </span>
 
                         <span id="loadingText" class="d-none">
