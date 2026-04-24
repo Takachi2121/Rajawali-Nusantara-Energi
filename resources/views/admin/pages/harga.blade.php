@@ -165,7 +165,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->tanggal_awal }}</td>
                             <td>{{ $item->tanggal_akhir }}</td>
-                            <td>LSFO</td>
+                            <td>HSFO</td>
                             <td>{{ $item->harga_1 }}</td>
                             <td>{{ $item->harga_2 }}</td>
                             <td>{{ $item->harga_3 }}</td>
